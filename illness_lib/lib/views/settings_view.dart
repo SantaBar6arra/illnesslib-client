@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:illness_lib/constants.dart';
+import 'package:illness_lib/views/side_menu_view.dart';
 
 class SettingsView extends StatefulWidget {
   const SettingsView({Key? key}) : super(key: key);
@@ -14,12 +14,8 @@ class _SettingsViewState extends State<SettingsView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Settings"),
-        leading: IconButton(
-          onPressed: () async =>
-            Navigator.of(context).pushNamedAndRemoveUntil(mainRoute, (route) => false), 
-          icon: const Icon(Icons.arrow_back),
-        ),
       ),
+      drawer: getSideMenu(context),
       body: Column(
         children: [
           Row(
