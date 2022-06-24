@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:illness_lib/components/app_loading.dart';
 import 'package:illness_lib/models/user_list_model.dart';
+import 'package:illness_lib/utils/constants.dart';
 import 'package:illness_lib/view_models/user_view_model.dart';
 import 'package:illness_lib/views/side_menu_view.dart';
 import 'package:provider/provider.dart';
@@ -34,8 +35,12 @@ class _HistoryViewState extends State<HistoryView> {
         child: ListView.separated(
             itemBuilder: (context, index) {
               UserModel userModel = userViewModel.userModel[index];
-              //final String name = userModel.name;
-              return Container(
+              return InkWell(
+                onTap: () async {
+                  userViewModel.setSelectedUser(userModel);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      historyItemRoute, (route) => false);
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(5.0),
                   child: Column(

@@ -8,10 +8,12 @@ class UserViewModel extends ChangeNotifier {
   bool _isLoading = false;
   List<UserModel> _userModel = [];
   UserError _userError = UserError();
+  UserModel? _selectedUser;
 
   bool get isLoading => _isLoading;
   List<UserModel> get userModel => _userModel;
   UserError get userError => _userError;
+  UserModel? get selectedUser => _selectedUser;
 
   UserViewModel() {
     getUsers();
@@ -28,6 +30,10 @@ class UserViewModel extends ChangeNotifier {
 
   setUserError(UserError userError) {
     _userError = userError;
+  }
+
+  setSelectedUser(UserModel selectedUser) {
+    _selectedUser = selectedUser;
   }
 
   getUsers() async {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:illness_lib/utils/constants.dart';
 import 'package:illness_lib/view_models/user_view_model.dart';
+import 'package:illness_lib/views/history_item_view.dart';
 import 'package:illness_lib/views/history_view.dart';
 import 'package:illness_lib/views/home_view.dart';
 import 'package:illness_lib/views/login_view.dart';
@@ -26,6 +27,7 @@ void main() {
         mainRoute: (context) => const MainView(),
         settingsRoute: (context) => const SettingsView(),
         historyRoute: (context) => const HistoryView(),
+        historyItemRoute: (context) => const HistoryItemView(),
       },
     ),
   ));
