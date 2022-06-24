@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:illness_lib/constants.dart';
+import 'package:illness_lib/utils/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Drawer getSideMenu(BuildContext context) => Drawer(

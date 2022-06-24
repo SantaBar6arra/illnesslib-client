@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:illness_lib/constants.dart';
+import 'package:illness_lib/utils/constants.dart';
 import 'package:illness_lib/views/side_menu_view.dart';
 
 class MainView extends StatefulWidget {

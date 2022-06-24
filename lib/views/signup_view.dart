@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:illness_lib/constants.dart';
+import 'package:illness_lib/utils/constants.dart';
 
 class SignupView extends StatefulWidget {
   const SignupView({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _SignupViewState extends State<SignupView> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     _email.dispose();
     _password.dispose();
     super.dispose();
@@ -37,34 +37,36 @@ class _SignupViewState extends State<SignupView> {
           const Text("Welcome there!"),
           TextField(
             controller: _email,
-    
+
             // configuring the field as email
             autocorrect: false,
             enableSuggestions: false,
             keyboardType: TextInputType.emailAddress,
-    
+
             decoration: const InputDecoration(
               hintText: "Email...",
             ),
           ),
           TextField(
             controller: _password,
-    
+
             // configuring the field as password
             obscureText: true,
             autocorrect: false,
             enableSuggestions: false,
-    
+
             decoration: const InputDecoration(
-            hintText: "Password...",
+              hintText: "Password...",
             ),
           ),
           TextButton(
-            onPressed:() async => Navigator.of(context).pushNamedAndRemoveUntil(loginRoute, (route) => false),
+            onPressed: () async => Navigator.of(context)
+                .pushNamedAndRemoveUntil(loginRoute, (route) => false),
             child: const Text("Register"),
           ),
           TextButton(
-            onPressed:() async => Navigator.of(context).pushNamedAndRemoveUntil(loginRoute, (route) => false),
+            onPressed: () async => Navigator.of(context)
+                .pushNamedAndRemoveUntil(loginRoute, (route) => false),
             child: const Text("Already signed up? Login"),
           )
         ],

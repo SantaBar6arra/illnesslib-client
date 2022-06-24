@@ -8,3 +8,4 @@ const String settingsRoute = "/settings";
 const String historyRoute = "/history";
 
 const String helpUrl = "https://pub.dev";
+const String usersLink = "https://jsonplaceholder.typicode.com/users";
