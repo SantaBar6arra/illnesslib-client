@@ -6,14 +6,13 @@ class AppLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      // TODO: paste animation into the center of the screen
-      children: const [
-        SpinKitPumpingHeart(
+    return const Expanded(
+      child: Center(
+        child: SpinKitPumpingHeart(
           color: Colors.red,
           size: 55.0,
         ),
-      ],
+      ),
     );
   }
 }

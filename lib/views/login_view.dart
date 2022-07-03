@@ -1,4 +1,6 @@
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:illness_lib/utils/constants.dart';
 
 class LoginView extends StatefulWidget {
@@ -33,43 +35,51 @@ class _LoginViewState extends State<LoginView> {
         title: const Text("IllnessLib"),
         automaticallyImplyLeading: false,
       ),
-      body: Column(
-        children: [
-          TextField(
-            controller: _email,
-
-            // configuring the field as email
-            autocorrect: false,
-            enableSuggestions: false,
-            keyboardType: TextInputType.emailAddress,
-
-            decoration: const InputDecoration(
-              hintText: "Email...",
+      body: Padding(
+        padding: const EdgeInsets.all(40),
+        child: Column(
+          children: [
+            AutoSizeText(
+              "Welcome back!",
+              maxLines: 1,
+              style: TextStyle(fontSize: 20.sp),
             ),
-          ),
-          TextField(
-            controller: _password,
+            TextField(
+              controller: _email,
 
-            // configuring the field as password
-            obscureText: true,
-            autocorrect: false,
-            enableSuggestions: false,
+              // configuring the field as email
+              autocorrect: false,
+              enableSuggestions: false,
+              keyboardType: TextInputType.emailAddress,
 
-            decoration: const InputDecoration(
-              hintText: "Password...",
+              decoration: const InputDecoration(
+                hintText: "Email...",
+              ),
             ),
-          ),
-          TextButton(
-            onPressed: () async => Navigator.of(context)
-                .pushNamedAndRemoveUntil(mainRoute, (route) => false),
-            child: const Text("Log in"),
-          ),
-          TextButton(
-            onPressed: () async => Navigator.of(context)
-                .pushNamedAndRemoveUntil(signupRoute, (route) => false),
-            child: const Text("Don't have an account yet? Register right now!"),
-          ),
-        ],
+            TextField(
+              controller: _password,
+
+              // configuring the field as password
+              obscureText: true,
+              autocorrect: false,
+              enableSuggestions: false,
+
+              decoration: const InputDecoration(
+                hintText: "Password...",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () async => Navigator.of(context)
+                  .pushNamedAndRemoveUntil(historyRoute, (route) => false),
+              child: const Text("Log in"),
+            ),
+            TextButton(
+              onPressed: () async => Navigator.of(context)
+                  .pushNamedAndRemoveUntil(signupRoute, (route) => false),
+              child: const Text("Don't have an account yet? Register now!"),
+            ),
+          ],
+        ),
       ),
     );
   }

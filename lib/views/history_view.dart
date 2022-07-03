@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:illness_lib/components/app_loading.dart';
 import 'package:illness_lib/models/user_list_model.dart';
 import 'package:illness_lib/utils/constants.dart';
 import 'package:illness_lib/view_models/user_view_model.dart';
+import 'package:illness_lib/views/history_item_view.dart';
 import 'package:illness_lib/views/side_menu_view.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +25,32 @@ class _HistoryViewState extends State<HistoryView> {
         ),
         drawer: getSideMenu(context),
         body: Column(children: [
+          Container(
+            color: Colors.grey.shade300,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text("Doctor: name surname"),
+                Flexible(
+                  child: Padding(
+                      padding: EdgeInsets.only(left: 50.sp),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          hintText: "Search for patients...",
+                          hintStyle: TextStyle(
+                            fontSize: 11.sp,
+                          ),
+                        ),
+                      )),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.search),
+                  color: Colors.teal,
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
           _ui(userViewModel),
         ]));
   }
@@ -38,27 +66,32 @@ class _HistoryViewState extends State<HistoryView> {
               return InkWell(
                 onTap: () async {
                   userViewModel.setSelectedUser(userModel);
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      historyItemRoute, (route) => false);
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil(patientRoute, (route) => false);
                 },
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(userModel.name,
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 13)),
-                      Text(userModel.email,
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 13)),
-                    ],
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 30.sp, vertical: 5),
+                      child: HistoryItemView(
+                          name: userModel.name,
+                          date: userModel.address.geo.lat,
+                          time: userModel.id.toString(),
+                          suggestion: userModel.company.catchPhrase,
+                          sympthoms: userModel.address.street),
+                    ),
+                  ],
                 ),
               );
             },
-            separatorBuilder: (context, index) => const Divider(),
+            separatorBuilder: (context, index) => const Divider(
+                  thickness: 0,
+                  height: 0,
+                  color: Colors.white,
+                ),
             itemCount: userViewModel.userModel.length));
   }
 }
