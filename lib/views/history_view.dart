@@ -66,8 +66,8 @@ class _HistoryViewState extends State<HistoryView> {
               return InkWell(
                 onTap: () async {
                   userViewModel.setSelectedUser(userModel);
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil(patientRoute, (route) => false);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      appointmentRoute, (route) => false);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,

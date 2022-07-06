@@ -9,6 +9,8 @@ class SettingsView extends StatefulWidget {
 }
 
 class _SettingsViewState extends State<SettingsView> {
+  bool value = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,19 +18,94 @@ class _SettingsViewState extends State<SettingsView> {
         title: const Text("Settings"),
       ),
       drawer: getSideMenu(context),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              const Text("Your email: myemail@gmail.com"),
-              TextButton(
-                onPressed: () => {},
-                child: const Text("Change email"),
-              )
-            ],
-          )
-        ],
-      ),
+      body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(children: [
+            Center(
+              child: Column(children: [
+                const CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://flagi.in.ua/images/tovari/145/flag-donetskoy-oblasti_b.jpg"),
+                  radius: 80,
+                ),
+                const Text(
+                  "My name",
+                  style: TextStyle(fontSize: 17),
+                ),
+                const Text(
+                  "myemail@gmail.com",
+                  style: TextStyle(fontSize: 17),
+                ),
+                ElevatedButton(
+                  onPressed: () => {},
+                  child: const Text("Change Info About Me"),
+                ),
+              ]),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: Text("Language"),
+                    ),
+                    TextButton(
+                        onPressed: () => {}, child: const Text("English"))
+                  ],
+                ),
+                const Divider(),
+                InkWell(
+                  onTap: () => {},
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                    child: Text("History"),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => {},
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                    child: Text("Help"),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => {},
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                    child: Text("About us"),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: Text("Dark theme"),
+                    ),
+                    Switch.adaptive(
+                      trackColor:
+                          MaterialStateProperty.all(Colors.grey.shade200),
+                      thumbColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColor),
+                      value: value,
+                      onChanged: (value) => setState(() => this.value = value),
+                    ),
+                  ],
+                ),
+                InkWell(
+                  onTap: () => {},
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                    child: Text("Log out"),
+                  ),
+                ),
+              ],
+            ),
+          ])),
     );
   }
 }
