@@ -25,7 +25,7 @@ class HistoryItemView extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            color: Colors.teal,
+            color: Theme.of(context).colorScheme.surface,
             child: Row(
               children: [
                 const Icon(
@@ -37,7 +37,7 @@ class HistoryItemView extends StatelessWidget {
             ),
           ),
           Container(
-            color: Colors.grey.shade300,
+            color: Theme.of(context).colorScheme.primaryContainer,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: Row(
@@ -50,7 +50,9 @@ class HistoryItemView extends StatelessWidget {
                       Text(
                         "Date",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                             fontSize: 14.sp,
                             fontWeight: FontWeight.bold),
                       ),
@@ -62,14 +64,18 @@ class HistoryItemView extends StatelessWidget {
                           maxFontSize: 17,
                           style: TextStyle(
                             fontSize: 10.sp,
-                            color: Colors.black,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                           ),
                         ),
                       ),
                       Text(
                         "Time",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                             fontSize: 14.sp,
                             fontWeight: FontWeight.bold),
                       ),
@@ -81,7 +87,9 @@ class HistoryItemView extends StatelessWidget {
                           maxFontSize: 17,
                           style: TextStyle(
                             fontSize: 10.sp,
-                            color: Colors.black,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                           ),
                         ),
                       ),
@@ -92,7 +100,9 @@ class HistoryItemView extends StatelessWidget {
                       Text(
                         "Sympthoms entered by user:",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                             fontSize: 14.sp,
                             fontWeight: FontWeight.bold),
                       ),
@@ -101,14 +111,17 @@ class HistoryItemView extends StatelessWidget {
                         maxLines: 1,
                         maxFontSize: 17,
                         style: TextStyle(
-                          color: Colors.black,
+                          color:
+                              Theme.of(context).colorScheme.onPrimaryContainer,
                           fontSize: 10.sp,
                         ),
                       ),
                       Text(
                         "Program's suggestion:",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
                             fontSize: 14.sp,
                             fontWeight: FontWeight.bold),
                       ),
@@ -117,7 +130,8 @@ class HistoryItemView extends StatelessWidget {
                         maxLines: 1,
                         maxFontSize: 17,
                         style: TextStyle(
-                          color: Colors.black,
+                          color:
+                              Theme.of(context).colorScheme.onPrimaryContainer,
                           fontSize: 10.sp,
                         ),
                       ),
@@ -128,7 +142,7 @@ class HistoryItemView extends StatelessWidget {
             ),
           ),
           Container(
-            color: Colors.teal,
+            color: Theme.of(context).colorScheme.surface,
             child: Row(
               children: const [Text("")],
             ),

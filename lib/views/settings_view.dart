@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:illness_lib/views/side_menu_view.dart';
 
@@ -87,13 +88,25 @@ class _SettingsViewState extends State<SettingsView> {
                       child: Text("Dark theme"),
                     ),
                     Switch.adaptive(
-                      trackColor:
-                          MaterialStateProperty.all(Colors.grey.shade200),
-                      thumbColor: MaterialStateProperty.all(
-                          Theme.of(context).primaryColor),
-                      value: value,
-                      onChanged: (value) => setState(() => this.value = value),
-                    ),
+                        trackColor: MaterialStateProperty.all(
+                            Theme.of(context).colorScheme.primaryContainer),
+                        thumbColor: MaterialStateProperty.all(
+                            Theme.of(context).colorScheme.surface),
+                        value: value,
+                        onChanged: (value) {
+                          setState(() {
+                            this.value = value;
+                            value
+                                ? AdaptiveTheme.of(context).setDark()
+                                : AdaptiveTheme.of(context).setLight();
+                            // ? AdaptiveTheme.of(context).setTheme(
+                            //     light: patientLightTheme,
+                            //     dark: patientDarkTheme)
+                            // : AdaptiveTheme.of(context).setTheme(
+                            //     light: doctorLightTheme,
+                            //     dark: doctorDarkTheme);
+                          });
+                        }),
                   ],
                 ),
                 InkWell(

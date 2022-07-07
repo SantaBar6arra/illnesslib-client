@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 Drawer getSideMenu(BuildContext context) => Drawer(
       child: ListView(children: <Widget>[
         Container(
-          color: Colors.blue.shade700,
+          color: Theme.of(context).colorScheme.surface,
           child: Column(
             children: const [
               CircleAvatar(

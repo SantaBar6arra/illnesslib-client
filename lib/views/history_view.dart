@@ -26,7 +26,7 @@ class _HistoryViewState extends State<HistoryView> {
         drawer: getSideMenu(context),
         body: Column(children: [
           Container(
-            color: Colors.grey.shade300,
+            color: Theme.of(context).colorScheme.primaryContainer,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -45,7 +45,7 @@ class _HistoryViewState extends State<HistoryView> {
                 ),
                 IconButton(
                   icon: const Icon(Icons.search),
-                  color: Colors.teal,
+                  color: Theme.of(context).colorScheme.surface,
                   onPressed: () {},
                 ),
               ],
@@ -87,10 +87,10 @@ class _HistoryViewState extends State<HistoryView> {
                 ),
               );
             },
-            separatorBuilder: (context, index) => const Divider(
+            separatorBuilder: (context, index) => Divider(
                   thickness: 0,
                   height: 0,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.background,
                 ),
             itemCount: userViewModel.userModel.length));
   }

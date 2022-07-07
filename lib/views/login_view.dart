@@ -1,7 +1,9 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:illness_lib/utils/constants.dart';
+import 'package:illness_lib/utils/themes.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -69,8 +71,14 @@ class _LoginViewState extends State<LoginView> {
               ),
             ),
             ElevatedButton(
-              onPressed: () async => Navigator.of(context)
-                  .pushNamedAndRemoveUntil(historyRoute, (route) => false),
+              onPressed: () async {
+                // set patient theme in case there is a patient loggin in
+
+                // AdaptiveTheme.of(context)
+                //     .setTheme(light: patientLightTheme, dark: patientDarkTheme);
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil(historyRoute, (route) => false);
+              },
               child: const Text("Log in"),
             ),
             TextButton(
