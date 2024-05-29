@@ -29,13 +29,13 @@ class AppointmentView extends StatelessWidget {
                 Text(
                   "Name: ",
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontWeight: FontWeight.bold,
                       fontSize: 16.sp),
                 ),
                 Text(
                   userViewModel.selectedUser?.name ?? "",
-                  style: TextStyle(color: Colors.black, fontSize: 16.sp),
+                  style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 16.sp),
                 ),
               ],
             ),
@@ -43,39 +43,39 @@ class AppointmentView extends StatelessWidget {
               Text(
                 "Date: ",
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
                     fontSize: 16.sp),
               ),
               Text(
                 userViewModel.selectedUser?.address.geo.lat ?? "",
-                style: TextStyle(color: Colors.black, fontSize: 16.sp),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 16.sp),
               ),
             ]),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Text(
                 "Time: ",
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
                     fontSize: 16.sp),
               ),
               Text(
                 userViewModel.selectedUser?.id.toString() ?? "",
-                style: TextStyle(color: Colors.black, fontSize: 16.sp),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 16.sp),
               ),
             ]),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Text(
                 "Sympthoms: ",
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
                     fontSize: 16.sp),
               ),
               Text(
                 userViewModel.selectedUser?.address.street ?? "",
-                style: TextStyle(color: Colors.black, fontSize: 16.sp),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 16.sp),
               ),
             ]),
             Row(
@@ -85,14 +85,14 @@ class AppointmentView extends StatelessWidget {
                   Text(
                     "Program's suggestion: ",
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.onSurface,
                         fontWeight: FontWeight.bold,
                         fontSize: 16.sp),
                   ),
                   Flexible(
                     child: Text(
                       userViewModel.selectedUser?.company.catchPhrase ?? "",
-                      style: TextStyle(color: Colors.black, fontSize: 16.sp),
+                      style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 16.sp),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
                     ),

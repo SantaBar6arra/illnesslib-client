@@ -1,9 +1,7 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:illness_lib/utils/constants.dart';
-import 'package:illness_lib/utils/themes.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -70,21 +68,25 @@ class _LoginViewState extends State<LoginView> {
                 hintText: "Password...",
               ),
             ),
-            ElevatedButton(
-              onPressed: () async {
-                // set patient theme in case there is a patient loggin in
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary),
+                onPressed: () async {
+                  // set patient theme in case there is a patient loggin in
 
-                // AdaptiveTheme.of(context)
-                //     .setTheme(light: patientLightTheme, dark: patientDarkTheme);
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil(historyRoute, (route) => false);
-              },
-              child: const Text("Log in"),
+                  // AdaptiveTheme.of(context)
+                  //     .setTheme(light: patientLightTheme, dark: patientDarkTheme);
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil(historyRoute, (route) => false);
+                },
+                child: const Text("Log in", style: TextStyle(color: Colors.white))
+              )
             ),
             TextButton(
               onPressed: () async => Navigator.of(context)
                   .pushNamedAndRemoveUntil(signupRoute, (route) => false),
-              child: const Text("Don't have an account yet? Register now!"),
+              child: const Text("Don't have an account yet? Register now!", textAlign: TextAlign.center),
             ),
           ],
         ),

@@ -25,7 +25,7 @@ class HistoryItemView extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            color: Theme.of(context).colorScheme.surface,
+            color: Theme.of(context).colorScheme.secondary,
             child: Row(
               children: [
                 const Icon(
@@ -142,9 +142,9 @@ class HistoryItemView extends StatelessWidget {
             ),
           ),
           Container(
-            color: Theme.of(context).colorScheme.surface,
-            child: Row(
-              children: const [Text("")],
+            color: Theme.of(context).colorScheme.secondary,
+            child: const Row(
+              children: [Text("")],
             ),
           ),
         ],

@@ -10,8 +10,6 @@ class SettingsView extends StatefulWidget {
 }
 
 class _SettingsViewState extends State<SettingsView> {
-  bool value = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +36,13 @@ class _SettingsViewState extends State<SettingsView> {
                   style: TextStyle(fontSize: 17),
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.secondary),
                   onPressed: () => {},
-                  child: const Text("Change Info About Me"),
+                  child: const Text(
+                    "Change Info About Me",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ]),
             ),
@@ -88,23 +91,12 @@ class _SettingsViewState extends State<SettingsView> {
                       child: Text("Dark theme"),
                     ),
                     Switch.adaptive(
-                        trackColor: MaterialStateProperty.all(
-                            Theme.of(context).colorScheme.primaryContainer),
-                        thumbColor: MaterialStateProperty.all(
-                            Theme.of(context).colorScheme.surface),
-                        value: value,
+                        value: AdaptiveTheme.of(context).mode.isDark,
                         onChanged: (value) {
                           setState(() {
-                            this.value = value;
                             value
                                 ? AdaptiveTheme.of(context).setDark()
                                 : AdaptiveTheme.of(context).setLight();
-                            // ? AdaptiveTheme.of(context).setTheme(
-                            //     light: patientLightTheme,
-                            //     dark: patientDarkTheme)
-                            // : AdaptiveTheme.of(context).setTheme(
-                            //     light: doctorLightTheme,
-                            //     dark: doctorDarkTheme);
                           });
                         }),
                   ],
